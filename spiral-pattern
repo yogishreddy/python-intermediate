@@ -1,0 +1,24 @@
+Write a program to print the given pattern with user input(dynamic values).
+
+Sample Input:
+5
+
+Sample Output:
+555555555
+544444445
+543333345
+543222345
+543212345
+543222345
+543333345
+544444445
+555555555
+
+Program:-
+def spiral(n):
+    for i in range(1,2*n):
+        for j in range(1,2*n):
+            print(max(abs(i-n),abs(j-n))+1,end="")
+        print()
+n = int(input())
+spiral(n)
