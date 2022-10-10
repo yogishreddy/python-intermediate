@@ -1,0 +1,51 @@
+Casper and John are US army soldiers. They are always sharing messages in Encrypted order of n messages. Ram an Indian soldier wants to find the message Casper and John share. Please help Ram to find out the secret message for n Encrypted messages using the list concept.
+
+Input Format:
+The first line of input consists of n messages
+The next n lines of string input separated by space
+
+Output Format:
+The output consists of n lines of decoded messages with a new line. if n value is less than or equal to zero, print nothing.
+
+Constraints:
+1>=n>=50
+
+Sample Input 1:
+2
+hsggthbuwvf
+epdf
+
+Sample Output 1:
+codeshastra
+code
+
+Program:-
+def conv(ask):
+  i = 97-ask
+  return 123-i
+n = int(input())
+result=[]
+if n>=1 and n<=50:
+    for i in range(1,n+1):
+        j=-1
+        e = ''
+        str = input()
+        l = len(str)
+        for i in range(l//2,-1,-1):
+            j = j+1
+            ask=ord(str[i])-j
+            if ask<97:
+                e=chr(conv(ask))+e
+            else:
+                e=chr(ask)+e
+        j=0
+        for i in range(l//2+1,l):
+            j=j+1
+            ask = ord(str[i])-j
+            if ask< 97:
+                e=e+chr(conv(ask))
+            else:
+                e=e+chr(ask)
+        result.append(e)
+for i in result:
+    print(i) 
